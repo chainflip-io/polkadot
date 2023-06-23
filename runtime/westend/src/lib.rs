@@ -1273,13 +1273,7 @@ impl Get<Perbill> for NominationPoolsMigrationV4OldPallet {
 ///
 /// This contains the combined migrations of the last 10 releases. It allows to skip runtime
 /// upgrades in case governance decides to do so. THE ORDER IS IMPORTANT.
-pub type Migrations = (
-	migrations::V0940,
-	migrations::V0941,
-	migrations::V0942,
-	migrations::V0943,
-	migrations::Unreleased,
-);
+pub type Migrations = (migrations::Unreleased,);
 
 /// The runtime migrations per release.
 #[allow(deprecated, missing_docs)]
@@ -1287,26 +1281,6 @@ pub mod migrations {
 	use frame_support::traits::{GetStorageVersion, OnRuntimeUpgrade, StorageVersion};
 
 	use super::*;
-
-	pub type V0940 = (
-		clean_state_migration::CleanMigrate,
-		pallet_nomination_pools::migration::v4::MigrateToV4<
-			Runtime,
-			NominationPoolsMigrationV4OldPallet,
-		>,
-		pallet_nomination_pools::migration::v5::MigrateToV5<Runtime>,
-	);
-	pub type V0941 = (); // Node only release - no migrations.
-	pub type V0942 = (
-		parachains_configuration::migration::v5::MigrateToV5<Runtime>,
-		pallet_offences::migration::v1::MigrateToV1<Runtime>,
-	);
-	pub type V0943 = (
-		SetStorageVersions,
-		// Remove UMP dispatch queue <https://github.com/paritytech/polkadot/pull/6271>
-		parachains_configuration::migration::v6::MigrateToV6<Runtime>,
-		ump_migrations::UpdateUmpLimits,
-	);
 
 	/// Migrations that set `StorageVersion`s we missed to set.
 	pub struct SetStorageVersions;
@@ -1324,24 +1298,6 @@ pub mod migrations {
 
 	/// Unreleased migrations. Add new ones here:
 	pub type Unreleased = ();
-}
-
-/// Helpers to configure all migrations.
-pub mod ump_migrations {
-	use runtime_parachains::configuration::migration_ump;
-
-	pub const MAX_UPWARD_QUEUE_SIZE: u32 = 8 * 1024 * 1024;
-	pub const MAX_UPWARD_QUEUE_COUNT: u32 = 1398101;
-	pub const MAX_UPWARD_MESSAGE_SIZE: u32 = (1 << 17) - 5; // Checked in test `max_upward_message_size`.
-	pub const MAX_UPWARD_MESSAGE_NUM_PER_CANDIDATE: u32 = 512;
-
-	pub type UpdateUmpLimits = migration_ump::latest::ScheduleConfigUpdate<
-		super::Runtime,
-		MAX_UPWARD_QUEUE_SIZE,
-		MAX_UPWARD_QUEUE_COUNT,
-		MAX_UPWARD_MESSAGE_SIZE,
-		MAX_UPWARD_MESSAGE_NUM_PER_CANDIDATE,
-	>;
 }
 
 /// Unchecked extrinsic type as expected by this runtime.
