@@ -6,32 +6,36 @@ edition.workspace = true
 version.workspace = true
 
 [dependencies]
-parity-scale-codec = { version = "3.1.5", default-features = false, features = ["derive"] }
-scale-info = { version = "2.1.2", default-features = false, features = ["derive"] }
+parity-scale-codec = { version = "3.1.5", default-features = false, features = [
+	"derive",
+] }
+scale-info = { version = "2.1.2", default-features = false, features = [
+	"derive",
+] }
 xcm = { path = "..", default-features = false }
 xcm-executor = { path = "../xcm-executor", default-features = false }
-sp-std = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-arithmetic = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-io = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-frame-support = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-frame-system = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-pallet-transaction-payment = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
+sp-std = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-arithmetic = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-io = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-runtime = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+frame-support = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+frame-system = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+pallet-transaction-payment = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
 log = { version = "0.4.17", default-features = false }
 
 # Polkadot dependencies
 polkadot-parachain = { path = "../../parachain", default-features = false }
 
 [dev-dependencies]
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+sp-core = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+pallet-balances = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 pallet-xcm = { path = "../pallet-xcm" }
 polkadot-runtime-parachains = { path = "../../runtime/parachains" }
 [features]
 default = ["std"]
 runtime-benchmarks = [
 	"frame-support/runtime-benchmarks",
-	"frame-system/runtime-benchmarks"
+	"frame-system/runtime-benchmarks",
 ]
 std = [
 	"log/std",

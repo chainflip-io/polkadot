@@ -26,42 +26,42 @@ test-runtime-constants = { path = "../../../runtime/test-runtime/constants" }
 polkadot-runtime-parachains = { path = "../../../runtime/parachains" }
 
 # Substrate dependencies
-sp-authority-discovery = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-authority-discovery = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-babe = { package = "sc-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-consensus_common = { package = "sp-consensus", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-frame-benchmarking = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-grandpa = { package = "sc-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-grandpa_primitives = { package = "sp-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-inherents = { package = "sp-inherents", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-pallet-staking = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-pallet-transaction-payment = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-chain-spec = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-cli = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-consensus = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-executor = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-network = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-network-common = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-tracing = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-transaction-pool = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-service = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-arithmetic = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-state-machine = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-substrate-test-client = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+sp-authority-discovery = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-authority-discovery = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+babe = { package = "sc-consensus-babe", git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+consensus_common = { package = "sp-consensus", git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+frame-benchmarking = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+frame-system = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+grandpa = { package = "sc-finality-grandpa", git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+grandpa_primitives = { package = "sp-finality-grandpa", git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+inherents = { package = "sp-inherents", git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+pallet-staking = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+pallet-balances = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+pallet-transaction-payment = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-chain-spec = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-cli = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-client-api = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-consensus = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-executor = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-network = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-network-common = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-tracing = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-transaction-pool = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-service = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-arithmetic = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-blockchain = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-core = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-keyring = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-runtime = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-state-machine = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+substrate-test-client = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 [dev-dependencies]
-pallet-balances = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
+pallet-balances = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
 serde_json = "1.0.81"
-substrate-test-utils = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+substrate-test-utils = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 tokio = { version = "1.22.0", features = ["macros"] }
 
 [features]
-runtime-metrics=["polkadot-test-runtime/runtime-metrics"]
+runtime-metrics = ["polkadot-test-runtime/runtime-metrics"]

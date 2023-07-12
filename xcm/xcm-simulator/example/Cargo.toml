@@ -9,13 +9,13 @@ version.workspace = true
 codec = { package = "parity-scale-codec", version = "3.0.0" }
 scale-info = { version = "2.1.2", features = ["derive"] }
 
-frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+frame-system = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+frame-support = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+pallet-balances = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-std = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-core = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-runtime = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-io = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 xcm = { path = "../../" }
 xcm-simulator = { path = "../" }

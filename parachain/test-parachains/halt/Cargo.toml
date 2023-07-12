@@ -9,8 +9,8 @@ edition.workspace = true
 [dependencies]
 
 [build-dependencies]
-substrate-wasm-builder = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+substrate-wasm-builder = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 [features]
-default = [ "std" ]
+default = ["std"]
 std = []

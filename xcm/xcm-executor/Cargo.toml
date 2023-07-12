@@ -7,22 +7,22 @@ version.workspace = true
 
 [dependencies]
 impl-trait-for-tuples = "0.2.2"
-parity-scale-codec = { version = "3.1.5", default-features = false, features = ["derive"] }
+parity-scale-codec = { version = "3.1.5", default-features = false, features = [
+	"derive",
+] }
 xcm = { path = "..", default-features = false }
-sp-std = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-io = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-arithmetic = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-core = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
-frame-support = { git = "https://github.com/paritytech/substrate", default-features = false , branch = "polkadot-v0.9.36" }
+sp-std = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-io = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-arithmetic = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-core = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-runtime = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+frame-support = { git = "https://github.com/chainflip-io/substrate", default-features = false, branch = "fix/polkadot-v0.9.36-recovery-hack" }
 log = { version = "0.4.17", default-features = false }
-frame-benchmarking = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true , branch = "polkadot-v0.9.36" }
+frame-benchmarking = { git = "https://github.com/chainflip-io/substrate", default-features = false, optional = true, branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 [features]
 default = ["std"]
-runtime-benchmarks = [
-	"frame-benchmarking/runtime-benchmarks",
-]
+runtime-benchmarks = ["frame-benchmarking/runtime-benchmarks"]
 std = [
 	"parity-scale-codec/std",
 	"xcm/std",

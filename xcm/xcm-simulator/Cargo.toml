@@ -9,12 +9,12 @@ edition.workspace = true
 codec = { package = "parity-scale-codec", version = "3.0.0" }
 paste = "1.0.7"
 
-frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+frame-support = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-io = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-std = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 xcm = { path = "../" }
 xcm-executor = { path = "../xcm-executor" }
-polkadot-core-primitives = { path = "../../core-primitives"}
+polkadot-core-primitives = { path = "../../core-primitives" }
 polkadot-parachain = { path = "../../parachain" }
 polkadot-runtime-parachains = { path = "../../runtime/parachains" }

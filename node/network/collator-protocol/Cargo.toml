@@ -11,15 +11,15 @@ futures = "0.3.21"
 futures-timer = "3"
 gum = { package = "tracing-gum", path = "../../gum" }
 
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+sp-core = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-runtime = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-keystore = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 polkadot-primitives = { path = "../../../primitives" }
 polkadot-node-network-protocol = { path = "../../network/protocol" }
 polkadot-node-primitives = { path = "../../primitives" }
 polkadot-node-subsystem-util = { path = "../../subsystem-util" }
-polkadot-node-subsystem = {path = "../../subsystem" }
+polkadot-node-subsystem = { path = "../../subsystem" }
 fatality = "0.0.6"
 thiserror = "1.0.31"
 
@@ -28,9 +28,11 @@ log = "0.4.17"
 env_logger = "0.9.0"
 assert_matches = "1.4.0"
 
-sp-core = { git = "https://github.com/paritytech/substrate", features = ["std"] , branch = "polkadot-v0.9.36" }
-sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-network = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+sp-core = { git = "https://github.com/chainflip-io/substrate", features = [
+    "std",
+], branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-keyring = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-network = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 parity-scale-codec = { version = "3.1.5", features = ["std"] }
 
 polkadot-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }

@@ -25,20 +25,20 @@ polkadot-client = { path = "../node/client", optional = true }
 polkadot-node-core-pvf = { path = "../node/core/pvf", optional = true }
 polkadot-performance-test = { path = "../node/test/performance-test", optional = true }
 
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-frame-benchmarking-cli = { git = "https://github.com/paritytech/substrate", optional = true , branch = "polkadot-v0.9.36" }
-try-runtime-cli = { git = "https://github.com/paritytech/substrate", optional = true , branch = "polkadot-v0.9.36" }
-sc-cli = { git = "https://github.com/paritytech/substrate", optional = true , branch = "polkadot-v0.9.36" }
-sc-service = { git = "https://github.com/paritytech/substrate", optional = true , branch = "polkadot-v0.9.36" }
+sp-core = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-io = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sp-keyring = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+frame-benchmarking-cli = { git = "https://github.com/chainflip-io/substrate", optional = true, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+try-runtime-cli = { git = "https://github.com/chainflip-io/substrate", optional = true, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-cli = { git = "https://github.com/chainflip-io/substrate", optional = true, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-service = { git = "https://github.com/chainflip-io/substrate", optional = true, branch = "fix/polkadot-v0.9.36-recovery-hack" }
 polkadot-node-metrics = { path = "../node/metrics" }
-sc-tracing = { git = "https://github.com/paritytech/substrate", optional = true , branch = "polkadot-v0.9.36" }
-sc-sysinfo = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
-sc-executor = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+sc-tracing = { git = "https://github.com/chainflip-io/substrate", optional = true, branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-sysinfo = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
+sc-executor = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 [build-dependencies]
-substrate-build-script-utils = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.36" }
+substrate-build-script-utils = { git = "https://github.com/chainflip-io/substrate", branch = "fix/polkadot-v0.9.36-recovery-hack" }
 
 [features]
 default = ["db", "cli", "hostperfcheck", "full-node", "polkadot-native"]
@@ -56,7 +56,7 @@ cli = [
 runtime-benchmarks = [
 	"service/runtime-benchmarks",
 	"polkadot-node-metrics/runtime-benchmarks",
-	"polkadot-performance-test?/runtime-benchmarks"
+	"polkadot-performance-test?/runtime-benchmarks",
 ]
 full-node = ["service/full-node"]
 try-runtime = ["service/try-runtime", "try-runtime-cli/try-runtime"]
@@ -73,4 +73,7 @@ westend-native = ["service/westend-native"]
 rococo-native = ["service/rococo-native"]
 
 malus = ["full-node", "service/malus"]
-runtime-metrics = ["service/runtime-metrics", "polkadot-node-metrics/runtime-metrics"]
+runtime-metrics = [
+	"service/runtime-metrics",
+	"polkadot-node-metrics/runtime-metrics",
+]
