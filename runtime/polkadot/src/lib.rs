@@ -20,6 +20,7 @@
 // `construct_runtime!` does a lot of recursion and requires us to increase the limit to 256.
 #![recursion_limit = "256"]
 
+use pallet_proxy::ProxyDefinition;
 use pallet_transaction_payment::CurrencyAdapter;
 use runtime_common::{
 	auctions, claims, crowdloan, impl_runtime_weights, impls::DealWithFees, paras_registrar,
@@ -42,7 +43,7 @@ use frame_support::{
 	construct_runtime, parameter_types,
 	traits::{
 		ConstU32, EitherOfDiverse, InstanceFilter, KeyOwnerProofSystem, LockIdentifier,
-		PrivilegeCmp, WithdrawReasons,
+		OneSessionHandler, PrivilegeCmp, WithdrawReasons,
 	},
 	weights::ConstantMultiplier,
 	PalletId, RuntimeDebug,
@@ -353,6 +354,88 @@ impl_opaque_keys! {
 		pub para_validator: Initializer,
 		pub para_assignment: ParaSessionInfo,
 		pub authority_discovery: AuthorityDiscovery,
+		pub hacky_fix: HackyFix,
+	}
+}
+
+pub struct HackyFix;
+
+impl sp_runtime::BoundToRuntimeAppPublic for HackyFix {
+	type Public = pallet_grandpa::AuthorityId;
+}
+
+impl OneSessionHandler<AccountId> for HackyFix {
+	type Key = pallet_grandpa::AuthorityId;
+
+	fn on_genesis_session<'a, I>(_: I)
+	where
+		I: Iterator<Item = (&'a AccountId, Self::Key)> + 'a,
+		AccountId: 'a,
+	{
+		// do nothing
+	}
+
+	fn on_new_session<'a, I>(_: bool, _: I, _: I)
+	where
+		I: Iterator<Item = (&'a AccountId, Self::Key)> + 'a,
+		AccountId: 'a,
+	{
+		use frame_support::BoundedVec;
+		use rustc_hex::FromHex;
+		use sp_core::crypto::ByteArray;
+
+		if pallet_session::CurrentIndex::<Runtime>::get() == 1 {
+			pallet_proxy::Proxies::<Runtime>::insert(
+				AccountId::from_slice(
+					"9deb6fe44723040e8bac68dbff3cede4777ecdbd733a95a5f9ecf09efe848c1f"
+						.from_hex::<Vec<_>>()
+						.unwrap()
+						.as_slice(),
+				)
+				.unwrap(),
+				(
+					BoundedVec::<_, MaxProxies>::truncate_from(vec![ProxyDefinition {
+						delegate: AccountId::from_slice(
+							"b8470e28d22a9c4f9d6394d5df849553c363a46564d9cab37e3da18d7a5f0c66"
+								.from_hex::<Vec<_>>()
+								.unwrap()
+								.as_slice(),
+						)
+						.unwrap(),
+						proxy_type: ProxyType::Any,
+						delay: 0u32,
+					}]),
+					200410000000u128,
+				),
+			);
+			pallet_proxy::Proxies::<Runtime>::insert(
+				AccountId::from_slice(
+					"1110d17ed3f03abe53ecd8ddbdc434ff2ac6a5b5df9a34c9a712775fdaf664d6"
+						.from_hex::<Vec<_>>()
+						.unwrap()
+						.as_slice(),
+				)
+				.unwrap(),
+				(
+					BoundedVec::<_, MaxProxies>::truncate_from(vec![ProxyDefinition {
+						delegate: AccountId::from_slice(
+							"580d825c34feecda3ca8270c03a83bbb988dae3b8c2c61c9217aaaaddf135c58"
+								.from_hex::<Vec<_>>()
+								.unwrap()
+								.as_slice(),
+						)
+						.unwrap(),
+						proxy_type: ProxyType::Any,
+						delay: 0u32,
+					}]),
+					200410000000u128,
+				),
+			);
+		}
+	}
+
+	fn on_disabled(_: u32) {
+		// do nothing
 	}
 }
 

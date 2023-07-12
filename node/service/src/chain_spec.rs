@@ -237,11 +237,12 @@ fn polkadot_session_keys(
 ) -> polkadot::SessionKeys {
 	polkadot::SessionKeys {
 		babe,
-		grandpa,
+		grandpa: grandpa.clone(),
 		im_online,
 		para_validator,
 		para_assignment,
 		authority_discovery,
+		hacky_fix: grandpa,
 	}
 }
 
